@@ -15,5 +15,5 @@ export const getData = () =>
     setTimeout(() => {
       const data = fetch('mockData.json').then(res => res.json())
       resolve(data);
-    }, 700);
+    }, 300);
   });
