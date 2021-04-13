@@ -52,16 +52,12 @@ export const Inner = styled.ul`
   list-style-type: none;
 `;
 
-export const ArrowContainer = styled.div<{ isRotated: boolean }>`
+export const ArrowContainer = styled.div`
   flex-shrink: 0;
   min-width: 8px;
   display: flex;
   margin-right: 5px;
-  transform: translateY(8px);
-  svg {
-    transition: transform 0.3s;
-    transform: ${({ isRotated }) => (isRotated ? "rotate(180deg)" : undefined)};
-  }
+  transform: translateY(-2px);
 `;
 
 export const AnchorList = styled.ul`
