@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from "react";
+import React, { memo } from "react";
 import { Wrapper, Top, Title, ArrowContainer } from "../ListItem/styled";
 
 type Props = {
