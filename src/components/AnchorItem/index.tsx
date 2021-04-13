@@ -1,42 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { Wrapper, Top, Title, ArrowContainer } from "../ListItem/styled";
 
 type Props = {
   id: string;
   title: string;
   level: number;
-  currentActiveAnchor: string;
   setActiveAnchor: (id: string) => void;
+  currentActiveAnchor: string;
 };
 
-export const AnchorItem: React.FC<Props> = ({
-  id,
-  title,
-  level,
-  currentActiveAnchor,
-  setActiveAnchor,
-}) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+export const AnchorItem: React.FC<Props> = memo(
+  ({ id, title, level, setActiveAnchor, currentActiveAnchor }) => {
+    const isActive: boolean = currentActiveAnchor === id;
 
-  const handleClick = () => {
-    setActiveAnchor(id);
-  };
-
-  useEffect(() => {
-    if (currentActiveAnchor === id) {
-      setIsActive(true);
-    }
-    return () => {
-      setIsActive(false);
+    const handleClick = () => {
+      setActiveAnchor(id);
     };
-  }, [currentActiveAnchor, id]);
 
-  return (
-    <Wrapper>
-      <Top onClick={handleClick} level={level} isActive={isActive}>
-        <ArrowContainer isRotated={false}></ArrowContainer>
-        <Title isActive={isActive}>{title}</Title>
-      </Top>
-    </Wrapper>
-  );
-};
+    return (
+      <Wrapper>
+        <Top onClick={handleClick} level={level} isActive={isActive}>
+          <ArrowContainer></ArrowContainer>
+          <Title isActive={isActive}>{title}</Title>
+        </Top>
+      </Wrapper>
+    );
+  }
+);

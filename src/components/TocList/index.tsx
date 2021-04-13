@@ -115,12 +115,13 @@ export const TocList: React.FC = () => {
               pages={pages}
               anchors={anchors}
               level={level}
-              currentActive={currentActive}
-              currentActiveAnchor={currentActiveAnchor}
               buildSubpages={buildSubpages}
               buildAnchors={buildAnchors}
               setActive={setActive}
               setActiveAnchor={setActiveAnchor}
+              currentActive={currentActive}
+              active={id === currentActive}
+              currentActiveAnchor={currentActiveAnchor}
             ></ListItem>
           ))}
         </PagesList>
